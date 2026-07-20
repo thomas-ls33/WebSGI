@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-navy text-ink-primary font-body antialiased;
+  background-image: radial-gradient(circle at 15% 0%, rgba(115,218,234,0.08), transparent 45%), linear-gradient(160deg, #002247 0%, #012C4F 100%);
+  background-attachment: fixed;
+}
+
+::selection {
+  background: rgba(115,218,234,0.3);
+  color: #ECF3F5;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #002247;
+}
+::-webkit-scrollbar-thumb {
+  background: #589DB7;
+  border-radius: 8px;
+}
+
+:focus-visible {
+  outline: 2px solid #73DAEA;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
