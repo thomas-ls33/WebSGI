@@ -10,11 +10,7 @@ spring:
   datasource:
     url: ${DB_URL:jdbc:postgresql://localhost:5432/websgi}
     username: ${DB_USERNAME:websgi}
-<<<<<<< HEAD
     password: ${DB_PASSWORD:password}
-=======
-    password: ${DB_PASSWORD:websgi}
->>>>>>> c30b7d521b3a36408a35660d1d1dc6474ef56c4a
     driver-class-name: org.postgresql.Driver
 
   jpa:

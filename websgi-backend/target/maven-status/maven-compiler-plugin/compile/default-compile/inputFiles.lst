@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 C:\Users\thoma\Documents\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\config\CorsConfig.java
 C:\Users\thoma\Documents\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\controller\AdminRequestController.java
 C:\Users\thoma\Documents\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\controller\AuthController.java
@@ -30,36 +29,3 @@ C:\Users\thoma\Documents\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\secu
 C:\Users\thoma\Documents\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\service\AuthService.java
 C:\Users\thoma\Documents\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\service\HostingRequestService.java
 C:\Users\thoma\Documents\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\WebsgiApplication.java
-=======
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\config\CorsConfig.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\controller\AdminRequestController.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\controller\AuthController.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\controller\HostingRequestController.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\dto\AuthResponse.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\dto\ForgotPasswordRequest.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\dto\HostingRequestCreateDto.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\dto\HostingRequestResponse.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\dto\LoginRequest.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\dto\RegisterRequest.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\dto\ResetPasswordRequest.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\dto\StatusUpdateRequest.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\dto\UserResponse.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\entity\HostingRequest.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\entity\PasswordResetToken.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\entity\RequestStatus.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\entity\Role.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\entity\User.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\exception\ApiExceptions.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\exception\GlobalExceptionHandler.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\repository\HostingRequestRepository.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\repository\PasswordResetTokenRepository.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\repository\UserRepository.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\security\AuthenticatedUser.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\security\CurrentUserContext.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\security\JwtAuthenticationFilter.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\security\JwtService.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\security\PasswordHasher.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\service\AuthService.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\service\HostingRequestService.java
-C:\Users\thoma\Documents\AL 3ème année\WebSGI\websgi-backend\src\main\java\fr\esgi\websgi\WebsgiApplication.java
->>>>>>> c30b7d521b3a36408a35660d1d1dc6474ef56c4a
