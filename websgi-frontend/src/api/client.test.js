@@ -105,10 +105,28 @@ describe('api client', () => {
       expect(result).toBeNull();
     });
 
-    it('should throw an error carrying the response body when the request fails', async () => {
+    it('should throw the message field when the error body is JSON', async () => {
+      fetchMock.mockResolvedValue(
+        jsonResponse({ message: 'Email ou mot de passe incorrect' }, 401)
+      );
+
+      await expect(api.post('/auth/login', {})).rejects.toThrow(
+        new Error('Email ou mot de passe incorrect')
+      );
+    });
+
+    it('should throw the raw body when the error body is plain text', async () => {
       fetchMock.mockResolvedValue(new Response('Accès refusé', { status: 403 }));
 
-      await expect(api.get('/admin/requests', 'jeton')).rejects.toThrow('Accès refusé');
+      await expect(api.get('/admin/requests', 'jeton')).rejects.toThrow(new Error('Accès refusé'));
+    });
+
+    it('should throw the raw body when the JSON error has no message field', async () => {
+      fetchMock.mockResolvedValue(jsonResponse({ error: 'boom' }, 500));
+
+      await expect(api.get('/requests/mine', 'jeton')).rejects.toThrow(
+        new Error('{"error":"boom"}')
+      );
     });
 
     it('should throw a generic error with the status when the body is empty', async () => {
