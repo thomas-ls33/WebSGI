@@ -1,5 +1,5 @@
 const BASE_URL =
-  import.meta.env.VITE_API_URL || "http://websgi.192.168.10.108:8080/api";
+  import.meta.env.VITE_API_URL || "/api";
 
 async function request(path, options = {}, token) {
   const headers = { "Content-Type": "application/json", ...options.headers };

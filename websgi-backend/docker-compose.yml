@@ -1,0 +1,12 @@
+  grafana:
+    image: grafana/grafana:latest
+    container_name: websgi-grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    volumes:
+      - grafana_data:/var/lib/grafana
+    networks:
+      - websgi-network

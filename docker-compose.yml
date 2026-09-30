@@ -1,0 +1,64 @@
+services:
+
+  postgres:
+    image: postgres:16
+    container_name: websgi-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: websgi
+      POSTGRES_USER: websgi
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    networks:
+      - websgi-network
+
+
+  backend:
+    build:
+      context: ./websgi-backend
+
+    container_name: websgi-backend
+    restart: unless-stopped
+
+    depends_on:
+      - postgres
+
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/websgi
+      DB_USERNAME: websgi
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+
+    expose:
+      - "8080"
+
+    networks:
+      - websgi-network
+
+
+  frontend:
+    build:
+      context: ./websgi-frontend
+
+    container_name: websgi-frontend
+    restart: unless-stopped
+
+    depends_on:
+      - backend
+
+    ports:
+      - "80:80"
+
+    networks:
+      - websgi-network
+
+
+volumes:
+  postgres_data:
+
+
+networks:
+  websgi-network:
