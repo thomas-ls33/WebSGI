@@ -1,6 +1,15 @@
 const BASE_URL =
   import.meta.env.VITE_API_URL || "/api";
 
+function extractErrorMessage(body) {
+  try {
+    const parsed = JSON.parse(body);
+    return typeof parsed?.message === "string" ? parsed.message : body;
+  } catch {
+    return body;
+  }
+}
+
 async function request(path, options = {}, token) {
   const headers = { "Content-Type": "application/json", ...options.headers };
   if (token) headers.Authorization = `Bearer ${token}`;
@@ -8,8 +17,8 @@ async function request(path, options = {}, token) {
   const response = await fetch(`${BASE_URL}${path}`, { ...options, headers });
 
   if (!response.ok) {
-    const message = await response.text().catch(() => "");
-    throw new Error(message || `Erreur ${response.status}`);
+    const body = await response.text().catch(() => "");
+    throw new Error(extractErrorMessage(body) || `Erreur ${response.status}`);
   }
 
   const contentType = response.headers.get("content-type") || "";
