@@ -13,6 +13,12 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U websgi -d websgi"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
     networks:
       - websgi-network
 
@@ -25,12 +31,14 @@ services:
     restart: unless-stopped
 
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
 
     environment:
       DB_URL: jdbc:postgresql://postgres:5432/websgi
       DB_USERNAME: websgi
       DB_PASSWORD: ${POSTGRES_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET:?JWT_SECRET doit etre defini dans le .env}
 
     expose:
       - "8080"
