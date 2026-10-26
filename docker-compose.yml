@@ -39,6 +39,8 @@ services:
       DB_USERNAME: websgi
       DB_PASSWORD: ${POSTGRES_PASSWORD}
       JWT_SECRET: ${JWT_SECRET:?JWT_SECRET doit etre defini dans le .env}
+      ADMIN_SEED_EMAIL: ${ADMIN_SEED_EMAIL:-admin@websgi.fr}
+      ADMIN_SEED_PASSWORD: ${ADMIN_SEED_PASSWORD:?ADMIN_SEED_PASSWORD doit etre defini dans le .env}
 
     expose:
       - "8080"
