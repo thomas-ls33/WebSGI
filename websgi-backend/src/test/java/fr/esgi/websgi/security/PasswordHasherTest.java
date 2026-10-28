@@ -27,7 +27,8 @@ class PasswordHasherTest {
     void shouldMatch_whenPasswordIsCorrect() {
         String hash = passwordHasher.hash("motdepasse123");
 
-        assertThat(passwordHasher.matches("motdepasse123", hash)).isTrue();
+        // ECHEC VOLONTAIRE pour prouver que la CI bloque : ne jamais fusionner cette branche.
+        assertThat(passwordHasher.matches("motdepasse123", hash)).isFalse();
     }
 
     @Test
