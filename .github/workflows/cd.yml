@@ -1,13 +1,10 @@
 name: CD
 
-# Déploie sur la VM Azure après une CI verte sur main.
-# Le workflow CD doit exister sur la branche par défaut pour que workflow_run le déclenche.
 on:
   workflow_run:
     workflows: [CI]
     types: [completed]
     branches: [main]
-  # Déploiement manuel d'un commit de main (Actions > CD > Run workflow).
   workflow_dispatch:
 
 permissions:
@@ -15,14 +12,12 @@ permissions:
 
 env:
   REGISTRY: ghcr.io/thomas-ls33
-  # Commit à déployer : celui que la CI vient de valider, ou celui du lancement manuel.
   SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
 
 jobs:
   publish:
     name: Publier l'image ${{ matrix.name }}
     runs-on: ubuntu-latest
-    # Uniquement si la CI d'un push sur main est verte (ou lancement manuel).
     if: >-
       github.event_name == 'workflow_dispatch' ||
       (github.event.workflow_run.conclusion == 'success' &&
@@ -73,11 +68,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: publish
 
-    # Les secrets VM_* appartiennent à cet environment ; ses règles de protection
-    # (relecteurs, branches autorisées) s'appliquent avant le démarrage du job.
     environment: production
 
-    # Un seul déploiement à la fois, sans jamais en interrompre un en cours.
     concurrency:
       group: deploy-production
       cancel-in-progress: false
@@ -114,7 +106,6 @@ jobs:
           ssh $SSH_OPTS "$VM_USER@$VM_HOST" "IMAGE_TAG=$SHA bash -s" <<'REMOTE'
           set -euo pipefail
           cd ~/WebSGI
-          # Récupère le docker-compose.yml du commit déployé (échoue si la VM a divergé).
           git fetch origin
           git merge --ff-only "$IMAGE_TAG"
           export IMAGE_TAG
@@ -129,7 +120,6 @@ jobs:
         run: |
           for attempt in $(seq 1 18); do
             site=$(curl -s -o /dev/null -w '%{http_code}' --max-time 10 "http://$VM_HOST/" || true)
-            # Un mauvais identifiant doit répondre 401 : prouve nginx -> backend -> PostgreSQL.
             api=$(curl -s -o /dev/null -w '%{http_code}' --max-time 10 -X POST "http://$VM_HOST/api/auth/login" \
               -H 'Content-Type: application/json' \
               -d '{"email":"smoke-test@invalid.example","password":"invalide-123"}' || true)

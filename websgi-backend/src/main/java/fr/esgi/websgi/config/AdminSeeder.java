@@ -12,10 +12,6 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * Crée ou met à jour le compte administrateur au démarrage à partir de la configuration
- * (ADMIN_SEED_EMAIL / ADMIN_SEED_PASSWORD). Sans mot de passe configuré, ne fait rien.
- */
 @Component
 public class AdminSeeder implements ApplicationRunner {
 

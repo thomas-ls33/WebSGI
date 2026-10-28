@@ -18,10 +18,6 @@ import java.util.Map;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/**
- * Base des tests d'intégration : démarre l'application complète sur la base PostgreSQL de test
- * (migrations Flyway incluses) et remet la base dans un état connu avant chaque test.
- */
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")

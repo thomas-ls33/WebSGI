@@ -24,8 +24,6 @@ services:
 
 
   backend:
-    # En production : image publiée par la CI (IMAGE_TAG = SHA du commit déployé).
-    # En local : "docker compose up --build" construit l'image et la nomme pareil.
     image: ghcr.io/thomas-ls33/websgi-backend:${IMAGE_TAG:-latest}
     build:
       context: ./websgi-backend
