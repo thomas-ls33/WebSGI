@@ -75,9 +75,7 @@ jobs:
 
     # Les secrets VM_* appartiennent à cet environment ; ses règles de protection
     # (relecteurs, branches autorisées) s'appliquent avant le démarrage du job.
-    environment:
-      name: production
-      url: http://${{ secrets.VM_HOST }}
+    environment: production
 
     # Un seul déploiement à la fois, sans jamais en interrompre un en cours.
     concurrency:
